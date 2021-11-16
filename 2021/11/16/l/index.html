@@ -22,7 +22,7 @@
 
   
 
-  <title>3 | 如梦的博客</title>
+  <title>一次zip加密破解的wp | 如梦的博客</title>
 
   
 
@@ -96,11 +96,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">3</h1>
+          <h1 class="title-wrap">一次zip加密破解的wp</h1>
           <h2 class="title-sub-wrap">
             <strong>如梦</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-11-16T12:22:39.000Z" itemprop="datePublished">2021-11-16</time>
+            <time  class="article-date" datetime="2021-11-16T11:46:05.000Z" itemprop="datePublished">2021-11-16</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -129,32 +129,51 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。"><a href="#作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。" class="headerlink" title="作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。"></a>作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。</h3><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我拿到手的是一个未加密过的zip文件夹，里面有1个加密过的password.zip和2个加密的txt文件 如下图</p>
-<img src="/2021/11/16/3/images/3/屏幕截图 2021-11-16 190425-16370653913801.png" alt="屏幕截图 2021-11-16 190425" style="zoom:50%;">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp"><a href="#作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp" class="headerlink" title="作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp~~"></a>作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp~~</h3><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我拿到手的是一个未加密过的zip文件夹，里面有1个加密过的password.zip和2个加密的txt文件 如下图</p>
+<img src="/2021/11/16/l/00.png" class title="nzqhrm">
 
 <p> 由于都是加密过的文件  没有办法查看  所以尝试是否是被伪加密了</p>
 <p>把未加密的zip文件拖进010中查看 搜索以504B0102开头的16进制字段并将后面所有的09 00改为00 00</p>
-<p>![屏幕截图 2021-11-16 191256](../images/3/屏幕截图 2021-11-16 191256.png)由上图改为这样子</p>
-<img src="/2021/11/16/3/images/3/屏幕截图 2021-11-16 191256.png" alt="屏幕截图 2021-11-16 191256" style="zoom: 50%;">
+<img src="/2021/11/16/l/02.png" class title="nzqhrm">
+
+<p>由上图改为这样子</p>
+<img src="/2021/11/16/l/03.png" class title="nzqhrm">
+
+
 
 <p>改完后发现有两个文件都损坏掉但有一个txt文件可以打开</p>
-<p>![屏幕截图 2021-11-16 191921](../images/3/屏幕截图 2021-11-16 191921.png)<img src="/2021/11/16/3/images/3/屏幕截图 2021-11-16 191704.png" alt="屏幕截图 2021-11-16 191704" style="zoom:33%;"></p>
-<img src="/2021/11/16/3/images/3/屏幕截图 2021-11-16 191725.png" alt="屏幕截图 2021-11-16 191725" style="zoom:33%;">
+<img src="/2021/11/16/l/04.png" class title="nzqhrm">   <img src="/2021/11/16/l/05.png" class title="nzqhrm">
 
 <p>txt文件里没发现什么有价值的消息 所以转换思路 看到这两个txt文件的crc32值完全相同  想到可以使用已知明文攻击的方法来破解另一个txt文件  我这里使用的是apchpr的4.54版本</p>
 <p>先将已经破解出的txt文件做成一个zip文件  放入明文文件路径</p>
-<p>![屏幕截图 2021-11-16 192516](../images/3/屏幕截图 2021-11-16 192516.png)</p>
+<img src="/2021/11/16/l/06.png" class title="nzqhrm">
+
+
+
 <p>攻击结束后得到另一个txt文件的密码</p>
-<p>![屏幕截图 2021-11-16 192732](../images/3/屏幕截图 2021-11-16 192732.png)</p>
+<img src="/2021/11/16/l/07.png" class title="nzqhrm">
+
+
+
 <p>发现这个密码可以打开txt和password.zip文件</p>
-<p>![屏幕截图 2021-11-16 192915](../images/3/屏幕截图 2021-11-16 192915.png)</p>
+<img src="/2021/11/16/l/08.png" class title="nzqhrm">
+
+
+
 <p>发现三个txt文件的大小都是6字节 想到可以使用cyc32碰撞来得出文件内容</p>
 <p>我这里使用的是这个脚本<a target="_blank" rel="noopener" href="https://github.com/theonlypwner/crc32">https://github.com/theonlypwner/crc32</a></p>
 <p>具体使用方法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python crc32.py reverse 你的crc32密文</span><br></pre></td></tr></table></figure>
 
 <p>这里的密文要加上0x变成16进制</p>
-<p><img src="/2021/11/16/3/images/3/屏幕截图 2021-11-16 194727.png" alt="屏幕截图 2021-11-16 194727" style="zoom: 50%;"><img src="/2021/11/16/3/Users\liu\Pictures\111\屏幕截图 2021-11-16 194839.png" alt="屏幕截图 2021-11-16 194839" style="zoom:50%;"><img src="/2021/11/16/3/Users\liu\Pictures\111\屏幕截图 2021-11-16 194915.png" alt="屏幕截图 2021-11-16 194915" style="zoom:50%;"></p>
+<img src="/2021/11/16/l/09.png" class title="nzqhrm">
+
+<img src="/2021/11/16/l/10.png" class title="nzqhrm">
+
+<img src="/2021/11/16/l/11.png" class title="nzqhrm">
+
+
+
 <p>得到password.swp的密码 这个题到这就结束了</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>写这个wp主要是想要让自己不要忘记自己学过的东西 以后常复现来让自己的知识面更广 那我们下次再见啦‘’‘’‘</p>
 <p>参考文章：(<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011377996/article/details/79360820">https://blog.csdn.net/u011377996/article/details/79360820</a>)</p>
@@ -171,8 +190,8 @@
     
     <div class="card-text">
       
-        <a href="/2021/11/16/2/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">2</h2>
+        <a href="/2021/11/14/www/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">www</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -214,7 +233,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>6</span>
+        <span>4</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
