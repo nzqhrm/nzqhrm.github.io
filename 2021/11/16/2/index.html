@@ -22,7 +22,7 @@
 
   
 
-  <title>Hello World | 如梦的博客</title>
+  <title>2 | 如梦的博客</title>
 
   
 
@@ -96,11 +96,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Hello World</h1>
+          <h1 class="title-wrap">2</h1>
           <h2 class="title-sub-wrap">
             <strong>如梦</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-11-10T15:03:15.331Z" itemprop="datePublished">2021-11-10</time>
+            <time  class="article-date" datetime="2021-11-16T12:15:47.000Z" itemprop="datePublished">2021-11-16</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -129,19 +129,34 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。"><a href="#作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。" class="headerlink" title="作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。"></a>作为一个小白这是第一次做出来有关zip加密破解的题目，为了纪念和复习写了这个wp。</h3><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我拿到手的是一个未加密过的zip文件夹，里面有1个加密过的password.zip和2个加密的txt文件 如下图</p>
+<p>![屏幕截图 2021-11-16 190425](C:\Users\liu\Pictures\111\屏幕截图 2021-11-16 190425.png)</p>
+<p> 由于都是加密过的文件  没有办法查看  所以尝试是否是被伪加密了</p>
+<p>把未加密的zip文件拖进010中查看 搜索以504B0102开头的16进制字段并将后面所有的09 00改为00 00</p>
+<p>![屏幕截图 2021-11-16 191256](C:\Users\liu\Pictures\111\屏幕截图 2021-11-16 191256.png)由上图改为这样子</p>
+<img src="/2021/11/16/2/Users\liu\Pictures\111\屏幕截图 2021-11-16 191256.png" alt="屏幕截图 2021-11-16 191256" style="zoom: 50%;">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>改完后发现有两个文件都损坏掉但有一个txt文件可以打开</p>
+<p>![屏幕截图 2021-11-16 191921](C:\Users\liu\Pictures\111\屏幕截图 2021-11-16 191921.png)<img src="/2021/11/16/2/Users\liu\Pictures\111\屏幕截图 2021-11-16 191704.png" alt="屏幕截图 2021-11-16 191704" style="zoom:33%;"></p>
+<img src="/2021/11/16/2/Users\liu\Pictures\111\屏幕截图 2021-11-16 191725.png" alt="屏幕截图 2021-11-16 191725" style="zoom:33%;">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>txt文件里没发现什么有价值的消息 所以转换思路 看到这两个txt文件的crc32值完全相同  想到可以使用已知明文攻击的方法来破解另一个txt文件  我这里使用的是apchpr的4.54版本</p>
+<p>先将已经破解出的txt文件做成一个zip文件  放入明文文件路径</p>
+<p>![屏幕截图 2021-11-16 192516](C:\Users\liu\Pictures\111\屏幕截图 2021-11-16 192516.png)</p>
+<p>攻击结束后得到另一个txt文件的密码</p>
+<p>![屏幕截图 2021-11-16 192732](C:\Users\liu\Pictures\111\屏幕截图 2021-11-16 192732.png)</p>
+<p>发现这个密码可以打开txt和password.zip文件</p>
+<p>![屏幕截图 2021-11-16 192915](C:\Users\liu\Pictures\111\屏幕截图 2021-11-16 192915.png)</p>
+<p>发现三个txt文件的大小都是6字节 想到可以使用cyc32碰撞来得出文件内容</p>
+<p>我这里使用的是这个脚本<a target="_blank" rel="noopener" href="https://github.com/theonlypwner/crc32">https://github.com/theonlypwner/crc32</a></p>
+<p>具体使用方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python crc32.py reverse 你的crc32密文</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>这里的密文要加上0x变成16进制</p>
+<p><img src="/2021/11/16/2/Users\liu\Pictures\111\屏幕截图 2021-11-16 194727.png" alt="屏幕截图 2021-11-16 194727" style="zoom: 50%;"><img src="/2021/11/16/2/Users\liu\Pictures\111\屏幕截图 2021-11-16 194839.png" alt="屏幕截图 2021-11-16 194839" style="zoom:50%;"><img src="/2021/11/16/2/Users\liu\Pictures\111\屏幕截图 2021-11-16 194915.png" alt="屏幕截图 2021-11-16 194915" style="zoom:50%;"></p>
+<p>得到password.swp的密码 这个题到这就结束了</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>写这个wp主要是想要让自己不要忘记自己学过的东西 以后常复现来让自己的知识面更广 那我们下次再见啦‘’‘’‘</p>
+<p>参考文章：(<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011377996/article/details/79360820">https://blog.csdn.net/u011377996/article/details/79360820</a>)</p>
 
       </section>
 
@@ -154,8 +169,8 @@
     
     <div class="card-text">
       
-        <a href="/2021/11/10/new/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">new</h2>
+        <a href="/2021/11/16/3/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">3</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -163,6 +178,20 @@
   </article>
 </div>
           
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2021/11/16/1/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">1</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
           
         </nav>
       
